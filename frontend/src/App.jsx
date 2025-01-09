@@ -1,17 +1,14 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import 'bootstrap/dist/css/bootstrap.css'
-import Dashboard from './pages/Dashboard'
+import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import { Outlet } from "react-router-dom";
+import Navbar from "./pages/Navbar";
 
-function App() {
-
+export default function App() {
   return (
     <>
-<Dashboard />
-
+      <Navbar />
+      <Outlet />
     </>
-  )
+  );
 }
 
-export default App
