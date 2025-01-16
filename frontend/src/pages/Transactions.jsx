@@ -1,7 +1,7 @@
 const Transactions = () => {
   return (
     <>
-    <h2>Transactions</h2>
+    <h1>Transactions</h1>
       <div class="card m-2">
         <div class="card-title">
           <h5>+ Add transaction</h5>
