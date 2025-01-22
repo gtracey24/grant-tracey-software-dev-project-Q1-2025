@@ -18,9 +18,9 @@ public class TransactionService {
 
     public List<Transaction> fetchTransactionList() { return (List<Transaction>) transactionRepo.findAll(); };
 
-    public Optional<Transaction> fetchTransaction(long id) { return transactionRepo.findById(id); }
+    public Optional<Transaction> fetchTransaction(Integer id) { return transactionRepo.findById(id); }
 
-    public void deleteById(long id) { transactionRepo.deleteById(id);}
+    public void deleteTransaction(Integer id) { transactionRepo.deleteById(id);}
 
 }
 

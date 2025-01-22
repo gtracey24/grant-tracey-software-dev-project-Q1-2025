@@ -4,6 +4,7 @@ import com.budget.entities.Transaction;
 import com.budget.entities.TransactionDTO;
 import com.budget.repos.TransactionRepo;
 import com.budget.services.TransactionService;
+import jakarta.persistence.EntityNotFoundException;
 import org.hibernate.query.sqm.EntityTypeException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -47,6 +48,16 @@ public class TransactionController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteTransaction(@PathVariable int id) {
+        try {
+            transactionService.deleteTransaction(id);
+            return ResponseEntity.ok("Transaction with ID " + id + " has been deleted successfully");
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    };
     // In depth GET method
 //    @GetMapping
 //    public String displayTransactions(@RequestParam(required = false) Long id, Model model) {
