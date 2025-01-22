@@ -23,7 +23,7 @@ public class TransactionController {
     @Autowired
     private TransactionRepo transactionRepo;
 
-    @GetMapping("/")
+    @GetMapping("")
     public String displayTransactions(@RequestParam(required = false) Long id, Model model) {
         if(id == null) {
             model.addAttribute("h3", "Transactions");
@@ -41,5 +41,6 @@ public class TransactionController {
 
         return "/";
     }
+
 
 }
