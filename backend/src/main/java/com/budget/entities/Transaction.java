@@ -22,12 +22,12 @@ public class Transaction {
 
     public Transaction(){};
 
-    public Transaction(Integer id, Long amount, String description, Date date) {
-        this.id = id;
+    public Transaction(Long amount, String description, Date date) {
         this.amount = amount;
         this.description = description;
         this.date = date;
     }
+
 
     public Integer getId() {
         return id;
