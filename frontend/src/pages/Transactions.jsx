@@ -1,12 +1,11 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
 const Transactions = () => {
   return (
     <>
     <h1>Transactions</h1>
-      <div class="card m-2">
-        <div class="card-title">
-          <h5>+ Add transaction</h5>
-        </div>
-      </div>
+    <button type="button" class="btn btn-primary btn-lg btn-block">Add transaction</button>
       <div class="d-flex p-2">
         <div class="card m-5">
           <div class="card-title">
