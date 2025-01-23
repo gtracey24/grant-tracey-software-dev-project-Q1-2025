@@ -28,8 +28,21 @@ public class TransactionController {
     private TransactionRepo transactionRepo;
 
     @GetMapping
-    public List<Transaction> getTransactions() {
+    public List<Transaction> getTransactionList() {
         return transactionRepo.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getTransaction(@PathVariable int id) {
+
+        Optional<Transaction> optTransaction = transactionRepo.findById(id);
+
+        if (optTransaction.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Transaction ID " + id + " does not exist");
+        } else {
+            Transaction transaction = optTransaction.get();
+            return ResponseEntity.status(HttpStatus.FOUND).body(transaction);
+        }
     }
 
     @PostMapping
@@ -38,8 +51,7 @@ public class TransactionController {
             Transaction transaction = new Transaction(
                     transactionDTO.getAmount(),
                     transactionDTO.getDescription(),
-                    transactionDTO.getDate()
-            );
+                    transactionDTO.getDate());
 
             Transaction createdTransaction = transactionService.createTransaction(transaction);
 
@@ -58,24 +70,5 @@ public class TransactionController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     };
-    // In depth GET method
-//    @GetMapping
-//    public String displayTransactions(@RequestParam(required = false) Long id, Model model) {
-//        if(id == null) {
-//            model.addAttribute("h3", "Transactions");
-//            model.addAttribute("transactions", transactionRepo.findAll());
-//        } else {
-//            Optional<Transaction> result = transactionRepo.findById(id);
-//            if (result.isEmpty()) {
-//                model.addAttribute("h3", "Invalid Transaction ID: " + id);
-//            } else {
-//                Transaction transaction = result.get();
-//                model.addAttribute("h3", "Transaction " + id);
-//                model.addAttribute("transaction", transaction.getAmount());
-//            }
-//        }
-//
-//        return "redirect:transactions";
-//    }
 
 }
