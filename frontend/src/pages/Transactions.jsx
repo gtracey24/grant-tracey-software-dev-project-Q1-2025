@@ -9,12 +9,25 @@ const Transactions = () => {
     date: 19052005
   });
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formData);
+  }
+
   return (
     <>
       <h1>Transactions</h1>
       <div class="d-flex p-2">
         <div class="card m-2">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div class="form-group">
               <label for="newTransaction" class="card-title">
                 <h4>New Transaction</h4>
@@ -27,19 +40,22 @@ const Transactions = () => {
               <input
                 type="text"
                 class="form-control"
-                id="newTransactionDesc"
+                name= "description"
+                onChange={handleChange}
                 placeholder="Enter Description"
               />
               <input
                 type="date"
                 class="form-control"
-                id="newTransactionDate"
+                name= "date"
+                onChange={handleChange}
                 placeholder="Enter Date"
               />
               <input
                 type="number"
                 class="form-control"
-                id="newTransactionAmount"
+                name= "amount"
+                onChange={handleChange}
                 placeholder="Enter Amount"
               />
             </div>
