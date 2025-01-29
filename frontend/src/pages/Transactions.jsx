@@ -33,21 +33,21 @@ const Transactions = () => {
   return (
     <>
       <h1>Transactions</h1>
-      <div class="d-flex p-2">
-        <div class="card m-2">
+      <div class="d-flex align-items-center justify-content-center p-4">
+        <div class="card text-bg-dark m-2">
           <form onSubmit={handleSubmit}>
             <div class="form-group">
               <label for="newTransaction" class="card-title">
                 <h4>New Transaction</h4>
               </label>
-              <select class="form-select" aria-label="Default select">
+              <select class="form-select mb-3 row" aria-label="Default select">
                 <option selected>Type</option>
                 <option value="1">Expense</option>
                 <option value="2">Income</option>
               </select>
               <input
                 type="text"
-                class="form-control"
+                class="form-control mb-3 row"
                 name= "description"
                 value={data.description}
                 onChange={handleChange}
@@ -55,7 +55,7 @@ const Transactions = () => {
               />
               <input
                 type="date"
-                class="form-control"
+                class="form-control mb-3 row"
                 name= "date"
                 value={data.date}
                 onChange={handleChange}
@@ -63,7 +63,7 @@ const Transactions = () => {
               />
               <input
                 type="number"
-                class="form-control"
+                class="form-control mb-3 row"
                 name= "amount"
                 value={data.amount}
                 onChange={handleChange}

@@ -5,7 +5,7 @@ const Dashboard = () => {
   return (
     <>
     <h1>Dashboard</h1>
-      <div class="d-flex p-3 justify-content-center">
+      <div class="d-flex p-4 justify-content-center">
       <div class="card m-4">
           <div class="card-title">
             <h3>Net Balance</h3>
