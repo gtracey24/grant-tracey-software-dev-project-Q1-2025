@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { data } from "react-router-dom";
 
 const Transactions = () => {
 
@@ -17,9 +18,16 @@ const Transactions = () => {
     }))
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData);
+
+    try {
+      const response = await axios.post("http://localhost:8082/transactions", 
+        formData);
+        console.log('Response: ', response.data);
+    } catch (error) {
+      console.error('Error: ', error);
+    }
   }
 
   return (
@@ -41,6 +49,7 @@ const Transactions = () => {
                 type="text"
                 class="form-control"
                 name= "description"
+                value={data.description}
                 onChange={handleChange}
                 placeholder="Enter Description"
               />
@@ -48,6 +57,7 @@ const Transactions = () => {
                 type="date"
                 class="form-control"
                 name= "date"
+                value={data.date}
                 onChange={handleChange}
                 placeholder="Enter Date"
               />
@@ -55,6 +65,7 @@ const Transactions = () => {
                 type="number"
                 class="form-control"
                 name= "amount"
+                value={data.amount}
                 onChange={handleChange}
                 placeholder="Enter Amount"
               />
