@@ -2,6 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const Transactions = () => {
+
+  const [formData, setFormData] = useState({
+    amount: 0,
+    description: "",
+    date: 19052005
+  });
+
   return (
     <>
       <h1>Transactions</h1>
@@ -36,7 +43,7 @@ const Transactions = () => {
                 placeholder="Enter Amount"
               />
             </div>
-            <button type="button" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary">
               Add Transaction
             </button>
           </form>
