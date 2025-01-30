@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { data } from "react-router-dom";
+import ExpensesCard from "../components/ExpensesCard";
 
 const Transactions = () => {
 
@@ -19,7 +20,6 @@ const Transactions = () => {
   }
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
 
     try {
       const response = await axios.post("http://localhost:8082/transactions", 
@@ -76,12 +76,7 @@ const Transactions = () => {
           </form>
         </div>
         <div class="d-flex p-2">
-          <div class="card m-5">
-            <div class="card-title">
-              <h2>Expenses</h2>
-            </div>
-            <div class="card-body">$$$</div>
-          </div>
+          <ExpensesCard />
           <div class="card m-5">
             <div class="card-title">
               <h2>Income</h2>
