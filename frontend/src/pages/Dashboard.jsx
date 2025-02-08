@@ -1,7 +1,24 @@
+import React, { useEffect, useState } from "react";
 import "../App.css";
 import React from "react";
 
+
 const Dashboard = () => {
+
+const [transactions, setTransactions] = useState([]);
+
+useEffect(() => {
+    axios
+      .get("http://localhost:8082/transactions")
+      .then((response) => {
+        setTransactions(response.data);
+      })
+      .catch((error) => {
+        console.error("There was an error fetching the transactions.", error);
+      });
+  }, []);
+
+
   return (
     <>
     <h1>Dashboard</h1>
