@@ -72,4 +72,8 @@ public class TransactionController {
         }
     };
 
+    @GetMapping("/expenses")
+    public Integer getTotalAmount() {
+        return transactionService.getTotalAmount();
+    }
 }

@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
 import "../App.css";
-import React from "react";
+
 
 
 const Dashboard = () => {
 
-const [transactions, setTransactions] = useState([]);
+const [expenses, setExpenses] = useState([]);
 
 useEffect(() => {
     axios
-      .get("http://localhost:8082/transactions")
+      .get("http://localhost:8082/transactions/expenses")
       .then((response) => {
-        setTransactions(response.data);
+        setExpenses(response.data);
+        console.log("Total expenses: ", response.data);
       })
       .catch((error) => {
-        console.error("There was an error fetching the transactions.", error);
+        console.error("There was an error fetching the expenses.", error);
       });
   }, []);
 

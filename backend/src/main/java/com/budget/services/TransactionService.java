@@ -22,5 +22,9 @@ public class TransactionService {
 
     public void deleteTransaction(Integer id) { transactionRepo.deleteById(id);}
 
+    public Integer getTotalAmount() {
+        return transactionRepo.getTransactionTotal();
+    }
+
 }
 
