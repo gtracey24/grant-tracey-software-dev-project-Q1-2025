@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TransactionRepo extends JpaRepository<Transaction, Integer> {
 
-    @Query("SELECT SUM(t.amount) FROM Transaction s")
+    @Query("SELECT SUM(t.amount) FROM Transaction t")
     Integer getTransactionTotal();
 }

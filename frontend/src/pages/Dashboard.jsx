@@ -35,7 +35,7 @@ useEffect(() => {
           <div class="card-title">
             <h3>Expenses</h3>
           </div>
-          <div class="card-body">$$$</div>
+          <div class="card-body">${expenses}</div>
         </div>
         <div class="card m-4">
           <div class="card-title">
