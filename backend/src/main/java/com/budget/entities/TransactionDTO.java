@@ -7,6 +7,10 @@ public class TransactionDTO {
     private String description;
     private Date date;
 
+    private Boolean income;
+
+    private Boolean expense;
+
     public Long getAmount() {
         return amount;
     }
@@ -29,5 +33,21 @@ public class TransactionDTO {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Boolean getIncome() {
+        return income;
+    }
+
+    public void setIncome(Boolean income) {
+        this.income = income;
+    }
+
+    public Boolean getExpense() {
+        return expense;
+    }
+
+    public void setExpense(Boolean expense) {
+        this.expense = expense;
     }
 }

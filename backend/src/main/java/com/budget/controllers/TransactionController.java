@@ -52,7 +52,9 @@ public class TransactionController {
             Transaction transaction = new Transaction(
                     transactionDTO.getAmount(),
                     transactionDTO.getDescription(),
-                    transactionDTO.getDate());
+                    transactionDTO.getDate(),
+                    transactionDTO.getExpense(),
+                            transactionDTO.getIncome());
 
             Transaction createdTransaction = transactionService.createTransaction(transaction);
 

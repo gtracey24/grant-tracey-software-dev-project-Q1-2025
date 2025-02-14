@@ -20,13 +20,20 @@ public class Transaction {
     private String description;
     @NotNull
     private Date date;
+    @NotNull
+    private Boolean expense;
+
+    private Boolean income;
+
 
     public Transaction(){};
 
-    public Transaction(Long amount, String description, Date date) {
+    public Transaction(Long amount, String description, Date date, Boolean expense, Boolean income) {
         this.amount = amount;
         this.description = description;
         this.date = date;
+        this.expense = expense;
+        this.income = income;
     }
 
 
@@ -58,17 +65,33 @@ public class Transaction {
         this.date = date;
     }
 
+    public Boolean getExpense() {
+        return expense;
+    }
+
+    public void setExpense(Boolean expense) {
+        this.expense = expense;
+    }
+
+    public Boolean getIncome() {
+        return income;
+    }
+
+    public void setIncome(Boolean income) {
+        this.income = income;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Transaction that = (Transaction) o;
-        return Objects.equals(id, that.id) && Objects.equals(amount, that.amount) && Objects.equals(description, that.description) && Objects.equals(date, that.date);
+        return Objects.equals(id, that.id) && Objects.equals(amount, that.amount) && Objects.equals(description, that.description) && Objects.equals(date, that.date) && Objects.equals(expense, that.expense) && Objects.equals(income, that.income);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, amount, description, date);
+        return Objects.hash(id, amount, description, date, expense, income);
     }
 
     @Override
@@ -78,6 +101,8 @@ public class Transaction {
                 ", amount=" + amount +
                 ", description='" + description + '\'' +
                 ", date=" + date +
+                ", expense=" + expense +
+                ", income=" + income +
                 '}';
     }
 }
